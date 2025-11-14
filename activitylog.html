@@ -13,27 +13,31 @@
                 <a href="#home" class="active logo"><img id="logoimg" src="img/light_logo.png"></a>
             </div>
             <div class="navigation">
-                <div><a class="page" href="URL">Log Activity</a></div>
+                <div><a class="page" href="activitylog.html">Log Activity</a></div>
                 <div>
                     <a class="page" href="URL">Activity History</a>
                 </div>
-                <div><a class="page" href="URL">Profile</a></div>
+                <div><a class="page" href="profile.html">Profile</a></div>
             </div>
             <div class="top_buttons">
                 <label class="switch">
                     <input type="checkbox" value="light" id="toggle">
                     <span class="slider round"></span>
                 </label>
-                <button class="logout"><span>Logout</span></button>
+                <form action="login.html">
+                    <button class="logout" type="submit"><span>Logout</span></button>
+                </form>
             
                 <div class="nav_replace">
                     <div id="myNav" class="overlay">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <div class="overlay-content">
-                            <a href="#">Log Activity</a>
+                            <a href="activitylog.html">Log Activity</a>
                             <a href="#">Activity History</a>
-                            <a href="#">Profile</a>
-                            <button class="logout_mobile"><span>Logout</span></button>
+                            <a href="profile.html">Profile</a>
+                            <form action="login.html">
+                                <button class="logout_mobile" type="submit"><span>Logout</span></button>
+                            </form>
                         </div>
                     </div>
                     <span style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776; </span>
@@ -88,6 +92,7 @@
                             <h3>Activity Duration:</h3>
                             <select class="inputs" name="hours" id="hours">
                                 <option disabled selected>Hours</option>
+                                <option value="0">0 Hr</option>
                                 <option value="1">1 Hr</option>
                                 <option value="2">2 Hrs</option>
                                 <option value="3">3 Hrs</option>
