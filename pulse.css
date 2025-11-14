@@ -391,4 +391,7 @@ input:checked + .slider:before {
   .logout{
     display: none;
   }
+  .main_container{
+    margin-top: 4%;
+  }
 }
