@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title> 
+    <link rel = "stylesheet" href = "pulse.css">
+    <script src="pulse.js" defer></script>
+<body class="light" id="darklight">
+  <nav>
+    <div>
+        <div style="float: left;" class="logo-image">
+            <a href="#home" class="active logo"><img id="logoimg" src="img/light_logo.png"></a>
+        </div>
+        <div style="float: right;">
+          <label class="switch">
+            <input type="checkbox" value="light" id="toggle">
+            <span class="slider round"></span>
+          </label>
+        </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="heroimage">
+      <img id="heroimg" src="img/light_login_image.png" alt="">
+    </div>
+    <div class="content">
+      <h2>Pulse+</h2>
+      <form action="activitylog.html">
+        <div>
+          <input class="inputs" type="text" placeholder="Email">
+        </div>
+        <div>
+          <input class="inputs" type="password" placeholder="Password">
+        </div>
+        <div>
+          <button class="inputs" id="submit">Submit</button>
+        </div>
+      </form>
+      <hr>
+      <div><a href="newpassword.html" class="forgot">Forgotton your password?</a></div>
+      <div><b>Don't have an account?<a href="signup.html" class="sign">Sign up</a></b></div>
+    </div>
+  </div>
+
+</body>
+</html>

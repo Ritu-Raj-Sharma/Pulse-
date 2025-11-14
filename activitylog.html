@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Activity log page</title>
+        <link rel="stylesheet" href="pulse.css" />
+        <script src="pulse.js" defer></script>
+    </head>
+    <nav>
+        <div class="container-top">
+            <div class="logo-image">
+                <a href="#home" class="active logo"><img id="logoimg" src="img/light_logo.png"></a>
+            </div>
+            <div class="navigation">
+                <div><a class="page" href="URL">Log Activity</a></div>
+                <div>
+                    <a class="page" href="URL">Activity History</a>
+                </div>
+                <div><a class="page" href="URL">Profile</a></div>
+            </div>
+            <div style="float: right;">
+                <label class="switch">
+                <input type="checkbox" value="light" id="toggle">
+                <span class="slider round"></span>
+                 </label>
+                 <button class="logout"><span>Logout</span></button>
+            </div>
+            <div class="nav_replace">
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a href="#">Log Activity</a>
+                    <a href="#">Activity History</a>
+                    <a href="#">Profile</a>
+                    <button class="logout_mobile"><span>Logout</span></button>
+                </div>
+            </div>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+        </div>
+        </div>
+    </nav>
+    <body class="light" id="darklight">
+
+        <div class="main_container">
+            <div class="head">
+                <div class="image-act">
+                        <img
+                            src="img/calendar-icon.png"
+                            alt="img"
+                        />
+                        <h2>Log Activity Details</h2>
+                </div>
+            </div>
+                <div class="content_body">
+                    <div class="form">
+                        <form class="input_data">
+                            <h3>Activity type:</h3>
+                            <select class="inputs" name="types" id="types">
+                                <option value="running">Running</option>
+                                <option value="gym">Gym</option>
+                                <option value="swimming">Swimming</option>
+                                <option value="cycling">Cycling</option>
+                                <option value="studying">Studying</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="form">
+                    <form class="input_data">
+                        <h3>Date & Time:</h3>
+                        <input class="inputs" type="date" id="date" name="date" />
+                        <input class="inputs" type="time" id="appt" name="appt" />
+                    </form>
+                    </div>
+                    <div class="form">
+                        <form class="input_data">
+                            <h3>Intensity level:</h3>
+                            <select class="inputs" name="Intensity" id="Intensity">
+                                <option value="light">Light</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="heavy">Heavy</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="form">
+                        <form class="input_data">
+                            <h3>Activity Duration:</h3>
+                            <select class="inputs" name="hours" id="hours">
+                                <option disabled selected>Hours</option>
+                                <option value="1">1 Hr</option>
+                                <option value="2">2 Hrs</option>
+                                <option value="3">3 Hrs</option>
+                                <option value="4">4 Hrs</option>
+                                <option value="5">5 Hrs</option>
+                                <option value="6">6 Hrs</option>
+                                <option value="7">7 Hrs</option>
+                                <option value="8">8 Hrs</option>
+                                <option value="9">9 Hrs</option>
+                                <option value="10">10 Hrs</option>
+                                <option value="11">11 Hrs</option>
+                                <option value="12">12 Hrs</option>
+                            </select>
+
+                            <select class="inputs" name="minutes" id="minutes">
+                                <option disabled selected>Minutes</option>
+                                <option value="0">0 min</option>
+                                <option value="5">5 min</option>
+                                <option value="10">10 min</option>
+                                <option value="15">15 min</option>
+                                <option value="20">20 min</option>
+                                <option value="25">25 min</option>
+                                <option value="30">30 min</option>
+                                <option value="35">35 min</option>
+                                <option value="40">40 min</option>
+                                <option value="45">45 min</option>
+                                <option value="50">50 min</option>
+                                <option value="55">55 min</option>
+                            </select>
+                        </form>
+                    </div>
+                
+                </div>
+            <div class="foot">
+                    <h3>Journal(Optional):</h3>
+                    <textarea placeholder="Start today's journal..."
+                    ></textarea>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title> 
+    <link rel = "stylesheet" href = "pulse.css">
+    <script src="pulse.js" defer></script>
+<body class="light" id="darklight">
+<nav>
+  <div>
+      <div style="float: left;" class="logo-image">
+          <a href="#home" class="active logo"><img id="logoimg" src="img/light_logo.png"></a>
+      </div>
+      <div style="float: right;">
+        <label class="switch">
+          <input type="checkbox" value="light" id="toggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="content">
+    <h2>User Profile</h2>
+    <form action="/action_page.php">
+    <div class="firstlast">
+    <input class="inputs" type="text" placeholder="Weight"><input class="inputs" type="text" placeholder="Height">
+  </div>
+  <div>
+    <input class="inputs date" type="date" placeholder="Date of birth.">
+  </div>
+  <div>
+    <input class="inputs" type="text" placeholder="Calories to burn">
+  </div>
+  <div>
+    <label for="study"><input class="check" type="checkbox"></label>
+    <input class="inputs" name="study" type="text" placeholder="Hours to study" disabled>
+  </div>
+  <div>
+    <button class="inputs" id="submit">Update</button>
+  </div>
+  </form>
+  </div>
+  <div class="heroimage"><img id="heroimg" src="img/light_profile.png" alt=""></div>
+</div>
+
+</body>
+</html>

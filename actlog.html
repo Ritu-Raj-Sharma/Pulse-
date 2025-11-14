@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Activity log page</title>
+        <link rel="stylesheet" href="demo.css" />
+    </head>
+    <nav>
+        <div class="container-top">
+            <div class="logo-image">
+                <a href="#home" class="active logo"><img id="logoimg" src="img/light_logo.png"></a>
+            </div>
+            <div class="container">
+                <div><a class="page container" href="URL">Log Activity</a></div>
+                <div>
+                    <a class="page container" href="URL">Activity History</a>
+                </div>
+                <div><a class="page container" href="URL">Profile</a></div>
+            </div>
+            <div>
+                <label class="switch">
+                <input type="checkbox" value="light" id="toggle">
+                <span class="slider round"></span>
+                 </label>
+                 <button class="button"><span>Logout</span></button>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div class="container">
+            <div class="container">
+                <div class="image-act">
+                    <img
+                        src="https://static.vecteezy.com/system/resources/previews/006/789/084/original/calendar-and-clock-icon-free-vector.jpg"
+                        alt="img"
+                    />
+                </div>
+                <h2>Log Activity Details</h2>
+            </div>
+        </div>
+    <div class="main_container">
+        <div class="container-content">
+            <div class="container-content">
+                <form action="/action_page.php" method="get">
+                    <h3>Log Activity Details</h3>
+                    <label for="types">Choose activity:</label>
+                    <select class="inputs" name="types" id="types">
+                        <option value="running">Running</option>
+                        <option value="gym">Gym</option>
+                        <option value="swimming">Swimming</option>
+                        <option value="cycling">Cycling</option>
+                        <option value="studying">Studying</option>
+                    </select>
+                </form>
+            </div>
+
+            <div class="container-content">
+                <form>
+                    <h3>Date & Time:</h3>
+                    <input class="inputs" type="date" id="date" name="date" />
+                    <input class="inputs" type="time" id="appt" name="appt" />
+                </form>
+            </div>
+        </div>
+
+        <div class="container-content">
+            <div class="container-content">
+                <form>
+                    <h3>Intensity level</h3>
+                    <label for="Intensity">Choose Intensity:</label>
+                    <select class="inputs" name="Intensity" id="Intensity">
+                        <option value="light">Light</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="heavy">Heavy</option>
+                    </select>
+                </form>
+            </div>
+
+            <div class="container-content">
+                <form action="" method="get">
+                    <h3>Activity Duration</h3>
+                    <label for="Duration"></label>
+                    <select class="inputs" name="Duration" id="Duration">
+                        <option disabled selected>Hours</option>
+                        <option value="1">1 Hr</option>
+                        <option value="2">2 Hrs</option>
+                        <option value="3">3 Hrs</option>
+                        <option value="4">4 Hrs</option>
+                        <option value="5">5 Hrs</option>
+                        <option value="6">6 Hrs</option>
+                        <option value="7">7 Hrs</option>
+                        <option value="8">8 Hrs</option>
+                        <option value="9">9 Hrs</option>
+                        <option value="10">10 Hrs</option>
+                        <option value="11">11 Hrs</option>
+                        <option value="12">12 Hrs</option>
+                    </select>
+
+                    <select class="inputs" name="Duration" id="Duration">
+                        <option disabled selected>Minutes</option>
+                        <option value="0">0 min</option>
+                        <option value="5">5 min</option>
+                        <option value="10">10 min</option>
+                        <option value="15">15 min</option>
+                        <option value="20">20 min</option>
+                        <option value="25">25 min</option>
+                        <option value="30">30 min</option>
+                        <option value="35">35 min</option>
+                        <option value="40">40 min</option>
+                        <option value="45">45 min</option>
+                        <option value="50">50 min</option>
+                        <option value="55">55 min</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <div class="journal-section">
+            <h3>Journal(Optional):</h3>
+            <textarea placeholder="Start today's journal..."
+            ></textarea>
+        </div>
+    </div>
+    </body>
+</html>
