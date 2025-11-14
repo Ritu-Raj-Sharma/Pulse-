@@ -10,7 +10,6 @@
 
 .main_container{
   margin: auto;
-  margin-top: 2%;
   padding: 1%;
   height: 90vh;
   width: 90vw;
@@ -42,7 +41,7 @@
 }
 
 .container-top {
-    height: 20px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -59,7 +58,6 @@
 
 .logo-image{
     height: 70px;
-    display: flex;
 }
 
 .logo img{
@@ -92,7 +90,7 @@
 
 .page:hover{
     text-decoration: underline;
-    color: #242424;
+    color: palevioletred;
 }
 
 h2{
@@ -113,6 +111,11 @@ h2{
 
 .form{
   padding-left: 23%;
+}
+
+.foot{
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .firstlast{
@@ -229,7 +232,6 @@ hr{
   display: inline-block;
   width: 50px;
   height: 24px;
-  margin-top: 15px;
 }
 
 .switch input { 
@@ -263,11 +265,11 @@ hr{
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #0099ff;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #0099ff;
 }
 
 input:checked + .slider:before {
@@ -391,7 +393,13 @@ input:checked + .slider:before {
   .logout{
     display: none;
   }
-  .main_container{
-    margin-top: 4%;
+
+  .container-top {
+    display: grid;
+    height: 70px;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
   }
+  
 }
