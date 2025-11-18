@@ -185,7 +185,6 @@ h2{
     border-width: 2px;
     padding: 0.5em;
     font-size: large;
-    /* box-sizing: border-box; */
 }
 textarea{
     width: 100%;
