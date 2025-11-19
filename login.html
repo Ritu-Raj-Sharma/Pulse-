@@ -24,17 +24,18 @@
     </div>
     <div class="content">
       <h2>Pulse+</h2>
-      <form action="activitylog.html">
+      <form>
         <div>
-          <input class="inputs" type="text" placeholder="Email">
+          <input class="inputs" type="text" id="email" placeholder="Email" required>
         </div>
         <div>
-          <input class="inputs" type="password" placeholder="Password">
+          <input class="inputs" type="password" id="password" placeholder="Password" required>
         </div>
         <div>
-          <button class="inputs" id="submit">Submit</button>
+          <button type="button" class="inputs" id="submit" onclick="logIn()">Submit</button>
         </div>
       </form>
+      <span id="error"></span>
       <hr>
       <div><a href="newpassword.html" class="forgot">Forgotton your password?</a></div>
       <div><b>Don't have an account?<a href="signup.html" class="sign">Sign up</a></b></div>
