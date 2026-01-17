@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- set character encoding and make page responsive -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title shown in browser tab -->
+    <title>Activity History  page</title>
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="pulse.css"/>
+    <!-- JavaScript file for logic (runs after HTML loads) -->
+    <script src="pulse.js" defer></script>
+</head>
+
+<!-- top navigation bar with logo, links, theme toggle, and logout -->
+<nav>
+    <div class="container-top">
+        <div class="logo-image">
+            <!-- logo that links back to home page -->
+            <a href="homePage.html" class="active logo">
+                <img id="logoimg" src="img/light_logo.png">
+            </a>
+        </div>
+
+        <!-- desktop navigation links -->
+        <div class="navigation">
+            <div>
+                <a class="page" href="activitylog.html">Log Activity</a>
+            </div>
+            <div>
+                <a class="page" href="activityHistory.html">Activity History</a>
+            </div>
+            <div>
+                <a class="page" href="profile.html">Profile</a>
+            </div>
+        </div>
+
+        <div class="top_buttons">
+            <!-- theme switch (light / dark) -->
+            <label class="switch">
+                <input type="checkbox" value="light" id="toggle">
+                <span class="slider round"></span>
+            </label>
+
+            <!-- logout button sends user to login page -->
+            <form action="login.html">
+                <button class="logout" type="submit"><span>Logout</span></button>
+            </form>
+      
+            <!-- mobile navigation with overlay menu -->
+            <div class="nav_replace">
+                <!-- full screen overlay menu (hidden by default) -->
+                <div id="myNav" class="overlay">
+                    <!-- close button for overlay -->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <!-- overlay links and mobile logout button -->
+                    <div class="overlay-content">
+                        <a href="activitylog.html">Log Activity</a>
+                        <a href="activityHistory.html">Activity History</a>
+                        <a href="profile.html">Profile</a>
+                        <form action="login.html">
+                            <button class="logout_mobile" type="submit"><span>Logout</span></button>
+                        </form>
+                    </div>
+                </div>
+                <!-- hamburger icon to open overlay menu -->
+                <span style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776; </span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- main page body, light theme by default -->
+<body class="light" id="darklight">
+    <!-- main container for activity history content -->
+    <div class="main_container actHis">
+
+        <!-- date picker to choose which day's activities to view -->
+        <div class="rec_container">
+            <label for="date">Choose date: </label>
+            <input type="date" id="date" class="inputs">
+        </div>
+
+        <!-- box that will show activities for the selected date -->
+        <div class="rec_container">
+            <h3>🕒 Activities</h3>
+            <div class="analysis_box">
+                <!-- header where activity cards will be added -->
+                <div class="an_header" id="activityData">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- summary section showing totals for the day -->
+        <div class="rec_container">
+            <h3 id="summary_title">📊 Summary</h3>
+            <div class="summary">
+                <div>
+                    <!-- total number of exercise sessions -->
+                    <textarea readonly class="summary_num" id="total" placeholder="0"></textarea>
+                    <p class="summary_label">Total Exercised</p>
+                </div>
+                <div>
+                    <!-- total hours exercised -->
+                    <textarea readonly class="summary_num" id="hours" placeholder="0"></textarea>
+                    <p class="summary_label">Hours Exercised</p>
+                </div>
+                <div>
+                    <!-- total calories burned -->
+                    <textarea readonly class="summary_num" id="calories" placeholder="0"></textarea>
+                    <p class="summary_label">Calories burned</p>
+                </div>
+                <div>
+                    <!-- total hours studied -->
+                    <textarea readonly class="summary_num" id="study" placeholder="0"></textarea>
+                    <p class="summary_label">Hours Studied</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- critical analysis section with extra stats -->
+        <div class="rec_container">
+            <h3 id="summary_title">📈 Critical Analysis</h3>
+            <div class="analysis">
+                <!-- total steps estimate -->
+                <div class="analysis_box">
+                    <div class="an_header">
+                        <p class="an_title">Total Steps</p>
+                        <div class="an_icon">🏃</div>
+                    </div>
+                    <p class="an_value" id="steps_value">-</p>
+                </div>
+
+                <!-- distance estimate -->
+                <div class="analysis_box">
+                    <div class="an_header">
+                        <p class="an_title">Distance</p>
+                        <div class="an_icon">🗺️</div>
+                    </div>
+                    <p class="an_value" id="distance_value">-</p>
+                </div>
+
+                <!-- total calories burned for the day -->
+                <div class="analysis_box">
+                    <div class="an_header">
+                        <p class="an_title">Calories Burned</p>
+                        <div class="an_icon">🔥</div>
+                    </div>
+                    <p class="an_value" id="total_calories">-</p>
+                </div>
+
+                <!-- total exercise time in hours and minutes -->
+                <div class="analysis_box">
+                    <div class="an_header">
+                        <p class="an_title">Exercised Time</p>
+                        <div class="an_icon">🕜</div>
+                    </div>
+                    <p class="an_value" id="total_exercise">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "pulse",
+  "version": "1.0.0",
+  "description": "\"App to track user activities\"",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ritu-Raj-Sharma/Pulse-.git"
+  },
+  "author": "Ritu Raj Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ritu-Raj-Sharma/Pulse-/issues"
+  },
+  "homepage": "https://github.com/Ritu-Raj-Sharma/Pulse-#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

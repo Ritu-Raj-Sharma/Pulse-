@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup Page</title>
+<link rel="stylesheet" href="pulse.css">
+<script src="pulse.js" defer></script>
+
+<body class="light" id="darklight">
+   <!-- top navigation bar with logo and theme toggle -->
+   <nav>
+       <div class="container-top">
+           <div style="float: left;" class="logo-image">
+               <!-- logo that links back to homepage -->
+               <a href="homePage.html" class="active logo"><img id="logoimg" src="img/light_logo.png"></a>
+           </div>
+           <div style="float: right;">
+               <!-- light/dark mode toggle switch -->
+               <label class="switch">
+                   <input type="checkbox" value="light" id="toggle">
+                   <span class="slider round"></span>
+               </label>
+           </div>
+       </div>
+   </nav>
+
+   <!-- main container with signup form and image -->
+   <div class="container">
+       <div class="content">
+           <h2>Create New Account</h2>
+           <!-- signup form for new users -->
+           <form>
+               <!-- first and last name in one row -->
+               <div class="firstlast">
+                   <input class="inputs" type="text" id="fname" placeholder="First name" required><input id="lname" class="inputs" type="text" placeholder="Last name" required>
+               </div>
+               <!-- email input -->
+               <div>
+                   <input id="email" class="inputs" type="text" placeholder="Email" required>
+               </div>
+               <!-- password input -->
+               <div>
+                   <input id="password" class="inputs" type="password" placeholder="Password" required>
+               </div>
+               <!-- confirm password input -->
+               <div>
+                   <input id="confirmpass" class="inputs" type="password" placeholder="Confirm Password" required>
+               </div>
+               <!-- error message area -->
+               <span id="error"></span>
+               <!-- submit button that calls signUp() in JS -->
+               <div>
+                   <button type="button" class="inputs" id="submit" onclick="signUp()">Submit</button>
+               </div>
+           </form>
+       </div>
+       <!-- right side signup illustration -->
+       <div class="heroimage"><img id="heroimg" src="img/light_signup.png" alt></div>
+   </div>
+
+</body>
+
+</html>

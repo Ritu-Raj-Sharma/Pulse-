@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- set character encoding and make page responsive -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title that shows on the browser tab -->
+    <title>Homepage</title>
+    <!-- link to main stylesheet -->
+    <link rel="stylesheet" href="pulse.css">
+</head>
+
+<!-- top navigation bar-->
+<nav>
+    <div class="container-top">
+        <div class="logo-image">
+            <!-- logo that links back to home page -->
+            <a href="homePage.html" class="active logo">
+                <img id="logoimg" src="img/light_logo.png">
+            </a>
+        </div>
+        <!-- navigation links for page sections -->
+        <div class="navigation">
+            <div>
+                <a class="page" href="#features">Features</a>
+            </div>
+            <div>
+                <a class="page" href="#why">Why use it?</a>
+            </div>
+            <div>
+                <a class="page" href="#questions">Frequently asked questions</a>
+            </div>
+        </div>
+        <div class="top_buttons">
+            <!-- light/dark mode switch -->
+            <label class="switch">
+                <input type="checkbox" value="light" id="toggle">
+                <span class="slider round"></span>
+            </label>
+            <!-- login button that goes to login page -->
+            <form action="login.html">
+                <button class="logout" type="submit"><span>Login</span></button>
+            </form>
+
+            <!-- mobile navigation (overlay menu and hamburger icon) -->
+            <div class="nav_replace">
+                <!-- hidden full-screen overlay menu -->
+                <div id="myNav" class="overlay">
+                    <!-- close button for overlay -->
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <!-- overlay links and mobile login button -->
+                    <div class="overlay-content">
+                        <a href="#features">Features</a>
+                        <a href="#why">Why use it?</a>
+                        <a href="#questions">Frequently asked questions</a>
+                        <form action="login.html">
+                            <button class="logout_mobile" type="submit"><span>Login</span></button>
+                        </form>
+                    </div>
+                </div>
+                <!-- hamburger icon to open overlay menu -->
+                <span style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776; </span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- main page content; light mode by default -->
+<body class="light" id="darklight" onload="accordionFun()">
+    <div class="big-rectangle">
+        <div class="rectangle-content">
+            <p>Build Better Days<br>Track, Grow, and Thrive with Every Habit
+            </p>
+        </div>
+    </div>
+
+    <!-- Features section heading -->
+    <div class="centered" id="features">
+        <p>Features</p>
+    </div>
+
+    <!-- first feature card: tracking everything in one place -->
+    <div class="cardLike">
+        <div class="cardLike-image">
+            <img src="img/homepage2.png" alt="Man doing a plank">
+        </div>
+        <div class="cardLike-text">
+            <p>
+                This app allows you to track your daily calorie intake, monitor your study time, and record all your login activities—including session length, activity type, dates, and personal notes. All your habits and routines are kept in one organized place, making
+                it easier to understand your patterns and stay consistent with your goals.
+            </p>
+        </div>
+    </div>
+
+    <!-- Why use it section heading -->
+    <div class="centered" id="why">
+        <p>Why use it?</p>
+    </div>
+
+    <!-- second feature card: why this tracker is useful -->
+    <div class="cardLike">
+        <div class="cardLike-image">
+            <img src="img/homepage3.png" alt="Woman doing yoga">
+        </div>
+        <div class="cardLike-text">
+            <p>
+                A health tracker app is a simple but powerful way to stay organized and understand your daily habits. It helps you keep track of your calories, so you always know how much you are eating and can make better choices without guessing. It also lets you record
+                study time and login activities—how long you spent, what you worked on, which days you logged in, and any extra notes. Having all this in one place makes it easier to see patterns, stay consistent, and improve both your health and productivity.
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ section heading -->
+    <div class="centered" id="questions">
+        <p>Frequently asked questions</p>
+    </div>
+
+    <!-- FAQ accordion with questions and answers -->
+    <div class="accordion-container">
+        <!-- question 1 -->
+        <button class="accordion">+ Do I need an account to use the
+                app?</button>
+        <div class="panel">
+            <p>
+                Yes, creating an account allows your data—like calories, study time, and login records—to sync across devices and stay backed up
+            </p>
+        </div>
+        <!-- question 2 -->
+        <button class="accordion">+ Can I edit or delete an activity after I
+                log it?</button>
+        <div class="panel">
+            <p>
+                Yes, login activities—can be edited or removed anytime.
+            </p>
+        </div>
+        <!-- question 3 -->
+        <button class="accordion">+ Is my personal data secure?</button>
+        <div class="panel">
+            <p>
+                Absolutely. All your information is stored securely and is never shared without your permission.
+            </p>
+        </div>
+        <!-- question 4 -->
+        <button class="accordion">+ Can I add notes to my activity login
+                sessions?</button>
+        <div class="panel">
+            <p>
+                Yes, each entry allows optional notes so you can keep extra details or reminders.
+            </p>
+        </div>
+        <!-- question 5 -->
+        <button class="accordion">+ What devices does the website
+                support?</button>
+        <div class="panel">
+            <p>
+                The website works on both mobile and desktop, so you can track wherever you are.
+            </p>
+        </div>
+        <!-- question 6 -->
+        <button class="accordion">+ Is the app free to use?</button>
+        <div class="panel">
+            <p>
+                Yes. All features are completely free with no hidden fees.
+            </p>
+        </div>
+    </div>
+
+    <!-- main JavaScript file for theme, nav, and accordion -->
+    <script src="pulse.js"></script>
+</body>
+
+</html>

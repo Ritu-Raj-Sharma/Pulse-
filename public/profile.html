@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Page</title>
+<link rel="stylesheet" href="pulse.css">
+<script src="pulse.js" defer></script>
+
+<body class="light" id="darklight">
+   <!-- top navigation bar with logo and theme toggle -->
+   <nav>
+       <div class="container-top">
+           <div style="float: left;" class="logo-image">
+               <!-- logo that links back to homepage -->
+               <a href="homePage.html" class="active logo"><img id="logoimg" src="img/light_logo.png"></a>
+           </div>
+           <div style="float: right;">
+               <!-- light/dark mode toggle switch -->
+               <label class="switch">
+                 <input type="checkbox" value="light" id="toggle">
+                 <span class="slider round"></span>
+               </label>
+           </div>
+       </div>
+   </nav>
+
+   <!-- main container with profile form and image -->
+   <div class="container">
+       <div class="content">
+           <h2>User Profile</h2>
+           <!-- profile form for user details -->
+           <form>
+               <!-- weight and height in one row -->
+               <div class="firstlast">
+                   <input class="inputs" type="text" placeholder="Weight (Kg)" id="weight"><input class="inputs" type="text" placeholder="Height (cm)" id="height">
+               </div>
+               <!-- date of birth field -->
+               <div>
+                   <input class="inputs date" type="date" placeholder="Date of birth." id="dob">
+               </div>
+               <!-- target calories field -->
+               <div>
+                   <input class="inputs" type="text" placeholder="Calories to burn" id="calorie">
+               </div>
+               <!-- optional study hours with checkbox to enable -->
+               <div>
+                   <label for="myCheckbox"><input class="check" type="checkbox" id="myCheckbox"></label>
+                   <input class="inputs" name="study" type="text" id="studyBox" placeholder="Hours to study" disabled>
+               </div>
+               <!-- error message area -->
+               <span id="error"></span>
+               <!-- update button that calls updateProfile() in JS -->
+               <div>
+                   <button type="button" class="inputs" id="submit" onclick="updateProfile()">Update</button>
+               </div>
+           </form>
+       </div>
+       <!-- right side profile image -->
+       <div class="heroimage"><img id="heroimg" src="img/light_profile.png" alt></div>
+   </div>
+
+</body>
+
+</html>
