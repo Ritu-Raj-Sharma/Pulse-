@@ -1,13 +1,13 @@
 // Dummy userdata 
 let userData = [
     {
-        email: "rajr23698@gmail.com",
-        password: "abcdefg",
-        firstName: "Ritu Raj",
-        lastName: "Sharma",
+        email: "random@gmail.com",
+        password: "randompassword",
+        firstName: "Random first name",
+        lastName: "Random last name",
         weight: 70,
         height: 170,
-        dob: "2001-01-29",
+        dob: "2001-01-01",
         calorie: 900,
         study: "none",
         activities: [
