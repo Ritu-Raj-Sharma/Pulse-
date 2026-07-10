@@ -44,13 +44,13 @@ let userData = [
         ]
     },
     {
-        email: "rituraj@my.yorku.ca",
-        password: "hijklmnop",
-        firstName: "Ritu Raj",
-        lastName: "Sharma",
+        email: "kuchbhi@email.com",
+        password: "kuchbhipassword",
+        firstName: "kuchbhi first name",
+        lastName: "kuchbhi last name",
         weight: 70,
         height: 170,
-        dob: "2001-01-29",
+        dob: "2001-01-01",
         calorie: 800,
         study: 3,
         activities: [
@@ -139,7 +139,7 @@ app.use(express.json());
 
 // POST route to handle login requests
 app.post('/login', function(req, res) {
-    const email = req.body.email;
+    const email = (req.body.email || "").trim().toLowerCase();
     const password = req.body.password;
 // check if user input and match with dummy data
     let user = null;
@@ -178,7 +178,8 @@ app.post('/login', function(req, res) {
 app.post('/signup', function(req, res) {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    const email = req.body.email;
+    // normalize email so accounts are stored and matched consistently
+    const email = (req.body.email || "").trim().toLowerCase();
     const password = req.body.password;
 // check if user input and match with dummy data
     let existingUser = null;
@@ -222,7 +223,7 @@ app.post('/signup', function(req, res) {
 
 // POST route to handle password update requests
 app.post('/update-password', function(req, res) {
-    const email = req.body.email;
+    const email = (req.body.email || "").trim().toLowerCase();
     const newPassword = req.body.newPassword;
 // check if user input and match with dummy data
     let userIndex = -1;
@@ -252,7 +253,7 @@ app.post('/update-password', function(req, res) {
 
 // POST route to handle profile update requests
 app.post('/update-profile', function(req, res) {
-    const email = req.body.email;
+    const email = (req.body.email || "").trim().toLowerCase();
     const weight = req.body.weight;
     const height = req.body.height;
     const dob = req.body.dob;
@@ -290,7 +291,7 @@ app.post('/update-profile', function(req, res) {
 
 // POST route to log a new activity
 app.post('/log-activity', function(req, res) {
-    const email = req.body.email;
+    const email = (req.body.email || "").trim().toLowerCase();
     const activityType = req.body.activityType;
     const date = req.body.date;
     const time = req.body.time;
@@ -350,7 +351,7 @@ app.post('/log-activity', function(req, res) {
 
 // GET route to retrieve activities by specific date
 app.get('/get-activities-by-date', function(req, res) {
-    const email = req.query.email;
+    const email = (req.query.email || "").trim().toLowerCase();
     const date = req.query.date;
 // check for the user info
     let user = null;
@@ -377,7 +378,7 @@ app.get('/get-activities-by-date', function(req, res) {
 // total calories calcualted
     let totalCalories = 0;
     for (let i = 0; i < activitiesOnDate.length; i++) {
-        totalCalories = totalCalories + activitiesOnDate[i].caloriesBurned;
+        totalCalories = totalCalories + Number(activitiesOnDate[i].caloriesBurned);
     }
 //total minutes calcualted
     let totalMinutes = 0;
@@ -435,6 +436,11 @@ app.get('/get-activities-by-date', function(req, res) {
             totalExerciseTime: totalExerciseHours
         }
     });
+});
+
+// send visitors landing on the root URL to the login page
+app.get('/', function(req, res) {
+    res.redirect('/homePage.html');
 });
 
 app.use(express.static(path.join(__dirname, 'public')));

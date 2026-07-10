@@ -224,8 +224,11 @@ function updatePassword() {
         displayError.innerHTML = "Please fill all fields!";
         return;
     }
-    // make sure email entered matches logged in user
-    if (userEmail !== loggedInUser.email) {
+    // if a user is logged in (changing password from their account),
+    // make sure the email entered matches their account.
+    // if nobody is logged in (forgot-password flow), skip this check and
+    // let the server look the account up by email.
+    if (loggedInUser && userEmail !== loggedInUser.email) {
         var displayError = document.getElementById("error");
         displayError.style.display = "inline";
         displayError.style.color = "red";
@@ -522,7 +525,7 @@ function loadActivitiesByDate(date) {
         if (data.success) {
             displayActivities(data.activities, date);
             updateSummaryStats(data.stats);
-            updateCriticalAnalysis(data.stats);
+            updateCriticalAnalysis(data.stats, data.activities);
         } else {
             alert(data.message);
         }
@@ -540,15 +543,21 @@ function displayActivities(activities, date) {
         console.error("Activities container not found");
         return;
     }
-    // clear any previous activity cards
-    var existingActivities = document.querySelectorAll('.activity-card');
-    existingActivities.forEach(function(card) {
-        card.remove();
+
+    // the header stays; remove everything else shown from the previous date
+    // (old activity cards AND any "no activities" message)
+    var header = activityContainer.querySelector('.an_header');
+    var children = Array.prototype.slice.call(activityContainer.children);
+    children.forEach(function(child) {
+        if (child !== header) {
+            child.remove();
+        }
     });
 
     // if no activities on this date, show a simple message
     if (activities.length === 0) {
         var emptyMessage = document.createElement('p');
+        emptyMessage.className = 'no-activities';
         emptyMessage.style.textAlign = 'center';
         emptyMessage.style.color = '#999';
         emptyMessage.innerHTML = 'No activities logged for this date';
@@ -556,16 +565,10 @@ function displayActivities(activities, date) {
         return;
     }
 
-    // create a card for each activity and add it to the page
+    // create a card for each activity and add it to the page, in order
     activities.forEach(function(activity) {
         var activityCard = createActivityCard(activity);
-        var header = activityContainer.querySelector('.an_header');
-        // insert card after header if header exists
-        if (header) {
-            header.after(activityCard);
-        } else {
-            activityContainer.appendChild(activityCard);
-        }
+        activityContainer.appendChild(activityCard);
     });
 }
 
@@ -638,8 +641,8 @@ function updateSummaryStats(stats) {
 
     var hoursElement = document.getElementById('hours');
     if (hoursElement) {
-        // convert total minutes to whole hours
-        hoursElement.value = Math.floor(stats.totalMinutes / 60) || 0;
+        // exercise-only hours (excludes studying time)
+        hoursElement.value = stats.totalExerciseTime || 0;
     }
 
     var caloriesElement = document.getElementById('calories');
@@ -658,18 +661,27 @@ function updateSummaryStats(stats) {
 // UPDATE CRITICAL ANALYSIS
 
 // update extra analysis like steps, distance, total calories, total time
-function updateCriticalAnalysis(stats) {
+function updateCriticalAnalysis(stats, activities) {
+    activities = activities || [];
+
     // estimate steps from running activities
     var stepsElement = document.getElementById('steps_value');
     if (stepsElement) {
-        var runningActivities = document.querySelectorAll('.activity-card');
+        // roughly how many steps per minute at each intensity (running cadence)
+        var stepsPerMinute = {
+            light: 130,
+            moderate: 160,
+            heavy: 185
+        };
         var estimatedSteps = 0;
 
-        // for each card that has "Running", add steps based on total minutes
-        runningActivities.forEach(function(card) {
-            if (card.innerHTML.includes('Running')) {
-                // simple rule: 100 steps per minute of running
-                estimatedSteps += stats.totalMinutes * 100;
+        // only running activities count toward steps
+        activities.forEach(function(activity) {
+            if (activity.activityType === 'running') {
+                var cadence = stepsPerMinute[activity.intensity] || 150;
+                // small random wobble (+/-5%) so the estimate looks natural
+                var wobble = 0.95 + Math.random() * 0.1;
+                estimatedSteps += Math.round(activity.duration.totalMinutes * cadence * wobble);
             }
         });
         // if we have steps, format with commas, else show 0
